@@ -3,8 +3,6 @@ environment:
   message: This is the property file to the ${spring.application.name} specific to PRD environment
 
 spring:
-#  autoconfigure:
-#    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   datasource:
     driver-class-name: org.postgresql.Driver
     url: ${DEV_DATABASE}

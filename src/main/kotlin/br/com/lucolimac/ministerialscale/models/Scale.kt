@@ -1,50 +1,32 @@
-package br.com.lucolimac.ministerialscale.models;
+package br.com.lucolimac.ministerialscale.models
 
+import com.fasterxml.jackson.annotation.JsonFormat
+import com.sun.istack.NotNull
+import java.time.LocalDate
+import java.time.LocalTime
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sun.istack.NotNull;
-import lombok.*;
-import org.hibernate.Hibernate;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Objects;
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
 @Entity
-public final class Scale {
+data class Scale(
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private val id: Long? = null,
+
     @NotNull
     @JsonFormat(pattern = "HH:mm")
-    private LocalTime hour;
+    private val hour: LocalTime,
+
     @NotNull
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate date;
-    @NotNull
-    private String minister;
-    @NotNull
-    private String place;
+    private val date: LocalDate,
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Scale scale = (Scale) o;
-        return id != null && Objects.equals(id, scale.id);
-    }
+    @NotNull
+    private val minister: String,
 
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
-}
+    @NotNull
+    private val place: String
+)
