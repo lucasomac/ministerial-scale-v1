@@ -1,6 +1,10 @@
 spring:
   application:
     name: Ministerial Scale Project API
+    dev:
+      name: Lucas de Oliveira Macedo
+      email: lucasomac@outlook.com
+      url: https://www.linkedin.com/in/lucasomac/
   config:
     activate:
-      on-profile: dev
+      on-profile: prd

@@ -1,1 +1,1 @@
-rootProject.name = "ministerial-scale"
+rootProject.name = "ministerial-scale-v1"
