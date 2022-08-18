@@ -5,6 +5,5 @@ spring:
       name: Lucas de Oliveira Macedo
       email: lucasomac@outlook.com
       url: https://www.linkedin.com/in/lucasomac/
-  config:
-    activate:
-      on-profile: prd
+  profiles:
+    active: prd
