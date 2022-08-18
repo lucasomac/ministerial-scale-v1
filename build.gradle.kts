@@ -45,3 +45,10 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+tasks.jar {
+    enabled = false
+//    manifest {
+//        attributes["Main-Class"] = "br.com.lucolimac.ministerialscale.MinisterialScaleApplication"
+//    }
+}
