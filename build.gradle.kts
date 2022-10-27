@@ -23,16 +23,17 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    compileOnly("org.projectlombok:lombok")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly("org.postgresql:postgresql")
-    annotationProcessor("org.projectlombok:lombok")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.7.5")
+    implementation("org.springframework.boot:spring-boot-starter-web:2.7.5")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20")
+    testImplementation("org.jacoco:org.jacoco.build:0.8.8")
+    compileOnly("org.projectlombok:lombok:1.18.24")
+    developmentOnly("org.springframework.boot:spring-boot-devtools:2.7.5")
+    runtimeOnly("org.postgresql:postgresql:42.5.0")
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:2.7.5")
 }
 
 tasks.withType<KotlinCompile> {
@@ -48,7 +49,4 @@ tasks.withType<Test> {
 
 tasks.jar {
     enabled = false
-//    manifest {
-//        attributes["Main-Class"] = "br.com.lucolimac.ministerialscale.MinisterialScaleApplication"
-//    }
 }
