@@ -7,6 +7,12 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        sh './gradlew test'
+      }
+    }
+
   }
   triggers {
     pollSCM('* * * * *')
