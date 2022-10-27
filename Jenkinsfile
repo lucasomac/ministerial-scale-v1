@@ -1,26 +1,19 @@
 pipeline {
-  agent {
-    node {
-      label 'Build'
-    }
+    agent any
 
-  }
-  stages {
-    stage('Build') {
-      steps {
-        withGradle() {
-          sh './gradlew assemble'
+    triggers {
+        pollSCM '* * * * *'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh './gradlew assemble'
+            }
         }
-
-      }
+        stage('Test') {
+            steps {
+                sh './gradlew test'
+            }
+        }
     }
-
-    stage('Test') {
-      agent any
-      steps {
-        sh './gradlew test'
-      }
-    }
-
-  }
 }
