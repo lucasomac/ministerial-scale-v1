@@ -19,6 +19,6 @@
 FROM openjdk:latest
 COPY . /ministerial-scale-v1
 WORKDIR /ministerial-scale-v1
-RUN /work/gradlew build
-RUN mv /work/build/libs/*.jar /work/server.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/ministerial-scale-v1/server.jar"]
+RUN ./gradlew build
+RUN mv ./build/libs/*.jar ./server.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","./server.jar"]
