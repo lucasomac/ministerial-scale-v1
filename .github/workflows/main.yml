@@ -2,7 +2,7 @@ name: Ministerial-Scale
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "feature/docker]
 
 jobs:
   CI: 
@@ -25,3 +25,20 @@ jobs:
         tags: |
           lucasomac/ministerial-scale-v1:${{github.run_number}}
           lucasomac/ministerial-scale-v1:latest
+  CD:
+    runs-on: ubuntu-latest
+    needs: [CI]
+    steps: 
+      - uses: actions/checkout@v3.1.0
+      
+      - name: Definindo o context
+        uses: Azure/k8s-set-context@v3.0
+        with:
+          method: kubeconfig
+          kubeconfig: ${{secrets.K8S_CONFIG}}
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v4
+        with:
+          images: lucasomac/ministerial-scale-v1:${{github.run_number}}
+          manifests: |
+            k8s/deployment.yaml
