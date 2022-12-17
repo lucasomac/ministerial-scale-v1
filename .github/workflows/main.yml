@@ -2,7 +2,7 @@ name: Ministerial-Scale
 
 on:
   push:
-    branches: ["main", "feature/docker]
+    branches: ["main", "feature/docker"]
 
 jobs:
   CI: 
