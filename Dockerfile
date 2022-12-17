@@ -16,11 +16,9 @@
 #ENTRYPOINT ["java", "-jar", "ministerial-scale-v1.jar"]
 #
 
-FROM openjdk
-VOLUME /tmp
-RUN mkdir /ministerial-scale-v1
+FROM openjdk:latest
 COPY . /ministerial-scale-v1
 WORKDIR /ministerial-scale-v1
 RUN /work/gradlew build
-RUN mv /work/build/libs/*.jar /ministerial-scale-v1/server.jar
+RUN mv /work/build/libs/*.jar /work/server.jar
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/ministerial-scale-v1/server.jar"]
